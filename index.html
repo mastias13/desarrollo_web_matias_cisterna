@@ -3,38 +3,57 @@
 <head>
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="./css/styles.css">
+	<script src="./js/scripts.js" defer></script>
+	<title>The Bird Log</title>
 </head>
 <body>
 
-	<div class="title">
+	<header class="title">
 		<img src="./assets/img/LOGO.png" alt="LogoTBP" class="mainlogo">
-		<h1>THE BIRDS PAGE</h1>
-	</div>
+		<h1>THE BIRD LOG</h1>
+	</header>
 
 	<nav class="navigation">
 		<ul class="nav-container">
-
-			<a href="./birds.html" class="page-button">
-				<li class="nav-element">BIRDS</li>
-			</a>
-
-			<a href="./birds.html" class="page-button">
-				<li class="nav-element">BIRDS</li>
-			</a>
-
-			<a href="./birds.html" class="page-button">
-				<li class="nav-element">BIRDS</li>
-			</a>
-
-			<a href="./birds.html" class="page-button">
-				<li class="nav-element">BIRDS</li>
-			</a>
+			<div class="nav-sub" id="left">
+				<a href="./birds.html" class="page-button">
+					<li class="nav-element">AVISTAMIENTOS</li>
+				</a>
+	
+				<a href="./stats.html" class="page-button">
+					<li class="nav-element">MÉTRICAS</li>
+				</a>
+	
+				
+				<a href="./about.html" class="page-button">
+					<li class="nav-element">SOBRE NOSOTROS</li>
+				</a>
+			</div>
 			
-			<a href="./birds.html" class="page-button" id="register-button">
-				<li class="nav-element">REGISTER</li>
-			</a>
+			<div class="nav-sub" id="right">
+				<a href="./birds.html" class="page-button">
+					<li class="nav-element">MIS AVISTAMIENTOS</li>
+				</a>
+				<a href="./register.html" class="page-button">
+					<li class="nav-element">REGISTRO/INICIAR SESIÓN</li>
+				</a>
+			</div>
 
 		</ul>
 	</nav>
+	<main style="display: flex; align-content:center;" id="image-container">
+
+		<img id="pic-displayer" src="./assets/img/image1.jpg">
+
+		<div id="text-container">
+
+			<h3 id="pic-title">HOLAAAAA TEXTOOO</h3>
+			<p id="pic-desc">Texto descriptivo</p>
+		
+		</div>
+
+	</main>
+
+
 
 </body>
