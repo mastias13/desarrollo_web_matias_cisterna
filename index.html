@@ -3,56 +3,33 @@
 <head>
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="./css/styles.css">
-	<script src="./js/scripts.js" defer></script>
+	<script src="./js/layout.js" defer></script>
+	<script src="./js/imagedisplay.js" defer></script>
 	<title>The Bird Log</title>
 </head>
 <body>
 
-	<header class="title">
-		<img src="./assets/img/LOGO.png" alt="LogoTBP" class="mainlogo">
-		<h1>THE BIRD LOG</h1>
-	</header>
+	<header></header>
 
-	<nav class="navigation">
-		<ul class="nav-container">
-			<div class="nav-sub" id="left">
-				<a href="./birds.html" class="page-button">
-					<li class="nav-element">AVISTAMIENTOS</li>
-				</a>
-	
-				<a href="./stats.html" class="page-button">
-					<li class="nav-element">MÉTRICAS</li>
-				</a>
-	
+	<nav></nav>
+	<main class="content-container">
+		<div id="image-container">
+
+			<img id="pic-displayer" src="./assets/img/image1.jpg">
+
+			<div id="text-container">
 				
-				<a href="./about.html" class="page-button">
-					<li class="nav-element">SOBRE NOSOTROS</li>
-				</a>
-			</div>
-			
-			<div class="nav-sub" id="right">
-				<a href="./birds.html" class="page-button">
-					<li class="nav-element">MIS AVISTAMIENTOS</li>
-				</a>
-				<a href="./register.html" class="page-button">
-					<li class="nav-element">REGISTRO/INICIAR SESIÓN</li>
-				</a>
+				<h3 id="pic-title"></h3>
+				<p id="pic-desc"></p>
+				
 			</div>
 
-		</ul>
-	</nav>
-	<main style="display: flex; align-content:center;" id="image-container">
 
-		<img id="pic-displayer" src="./assets/img/image1.jpg">
-
-		<div id="text-container">
-
-			<h3 id="pic-title">HOLAAAAA TEXTOOO</h3>
-			<p id="pic-desc">Texto descriptivo</p>
-		
 		</div>
-
+			
 	</main>
+
+	<footer></footer>
 
 
 
