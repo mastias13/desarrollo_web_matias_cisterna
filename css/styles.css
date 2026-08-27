@@ -135,7 +135,14 @@ main {
     margin: auto;
 }
 
-#registro {
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-container form {
     width: 100%;
     max-width: 400px;
 
@@ -145,13 +152,6 @@ main {
 
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 }
-
-.register-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 
 .input-box {
     display: flex;
@@ -174,13 +174,40 @@ main {
     font-size: 1rem;
 
 }
+
+.input-box select {
+    padding: 0.8rem;
+
+    border: 1px solid #ccc;
+    border-radius: 6px;
+
+    font-size: 1rem;    
+}
+
 button {
     width: 100%;
 
     padding: 0.8rem;
+    
+    margin-top:4px;
 
     border: none;
+    
     border-radius: 6px;
 
     cursor: pointer;
+}
+
+.main-button {
+    background-color: #52c97d;
+}
+.main-button:hover {
+    background-color: #87c99f;
+}
+
+.sec-button {
+    background-color: lightgreen;
+}
+.sec-button:hover {
+    background-color: rgb(176, 240, 176);
 }

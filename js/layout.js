@@ -23,11 +23,11 @@ const nav = `
 			</div>
 			
 			<div class="nav-sub" id="right">
-				<a href="./birds.html" class="page-button">
+				<a href="./sight.html" class="page-button">
 					<li class="nav-element">MIS AVISTAMIENTOS</li>
 				</a>
-				<a href="./register.html" class="page-button">
-					<li class="nav-element">REGISTRO/INICIAR SESIÓN</li>
+				<a href="./login.html" class="page-button">
+					<li class="nav-element">INICIAR SESIÓN</li>
 				</a>
 			</div>
 
