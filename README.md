@@ -9,6 +9,7 @@ Posteriormente, se hizo la página de avistamientos, donde se hizo la interfaz d
 
 Finalmente, para la parte de métricas, se generaron gráficos aleatorios en python con matplotlib, se utilizaron distribuciones estadísticas conocidas para crear los datos aleatorios y se asignó valor a cada eje, se agregó un "link al estudio" genérico que lleva a la página de inicio pues no hay estudio como tal pero es solamente representativo y es importante para la interfaz. También se puso un link de descarga de la base de datos que igualmente dirige al sitio de inicio. 
 
+El sitio fue validado con el validador de la W3C y pasó sin errores ni advertencias. También se comprobó el funcionamiento en los navegadores: Opera, Chrome, Windows Edge y Chrome para iPhone y no hubo problemas mas que un ligeramentee extraño escalamiento en las imágenes en el navegador móvil.
 <hr>
 
 ## Fuentes:
