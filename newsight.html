@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="./css/styles.css">
+	<script src="./js/layout.js" defer></script>
+	<title>The Bird Log</title>
+    <style>
+        #preview img{
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+	<header></header>
+
+
+	<main class="content-container">
+        <h1>Nuevo avistamiento</h1>
+        <form id="form-new-bird">
+
+            <div class="input-box">
+                <label for="name">Nombre de avistamiento</label><br>
+                <input type="text" id="name" name="name" >
+                <span class="error" id="error-name">Ingrese un nombre válido</span>
+            </div>
+			
+            <div class="input-box">
+                <label for="species">Especie de pájaro</label><br>
+                <input type="text" id="species" name="species" >
+                <span class="error" id="error-species">Ingrese una especie válida</span>
+            </div>
+			
+            <div class="input-box">
+                <label for="desc">Descripción</label><br>
+                <input type="text" id="desc" name="desc" >
+                <span class="error" id="error-desc">Ingrese una descripción válida</span>
+            </div>
+			
+            <div class="input-box">
+                <label for="region">Región</label><br>
+                <select id="region">
+                    <option value="">Selecciona una región</option>
+                </select>
+                <span class="error" id="error-region">Selecciona una región</span>
+            </div>
+            
+            <div class="input-box">
+                <label for="comuna">Comuna</label><br>
+                <select id="comuna">
+                    <option value="">Selecciona primero la región</option>
+                </select>
+                <span class="error" id="error-comuna">Selecciona una comuna</span>
+            </div>
+            
+            <div class="input-box">
+                <label for="date">Fecha (máximo un mes de antiguedad)</label><br>
+                <input type="date" id="date" name="date" >
+                <span class="error" id="error-date">Ingrese una fecha válida</span>
+            </div>
+			
+            <div class="input-box">
+                <label for="time">Hora</label><br>
+                <input type="time" id="time" name="time" >
+                <span class="error" id="error-time">Ingrese una hora válida</span>
+            </div>
+			
+            <div class="input-box">
+                <label for="img">Evidencia de avistamiento (Imagen o video hasta 3)</label><br>
+                <input type="file" id="img" name="img" accept="image/*, video/*" multiple >
+                <span class="error" id="error-file">Ingrese un archivo válido</span>
+                <div id="preview">
+
+                </div>
+            </div>
+
+            <button type="submit" class="main-button">Enviar</button>
+
+		</form>
+        <script src="./js/newsight.js"></script>
+    </main>
+
+    
+	<footer></footer>
+</body>

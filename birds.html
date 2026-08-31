@@ -5,13 +5,171 @@
 	<link rel="stylesheet" href="./css/styles.css">
 	<script src="./js/layout.js" defer></script>
 	<title>The Bird Log</title>
+	<style>
+		.card-container {
+			display: grid;
+			grid-template-columns: 50% 50%;
+			grid-template-rows: 50% 50%;
+			padding-bottom: 10%;
+		}
+		.bird-card {
+			display: flex;
+			background-color: white;
+			border:2px solid #DDE2DC;
+			border-radius: 15px;
+			box-shadow: 5px 5px rgba(0, 0, 0, 0.452);
+			margin: 10px auto;
+			width: 80%;
+			padding: 3%;
+		}
+		
+		.bird-desc-card {
+			display: flex;
+			flex-direction: column;
+			justify-content: left;
+			width: 100%;
+		}
+		.bird-desc-card h2 {
+			margin: auto;
+			color: #26332B;
+		}
+		.bird-desc-card p {
+			margin: 4px auto 0 2px;
+			color: #66736A;
+		}
+		.bird-desc-card button {
+			width: 50%;
+			padding: 4%;
+			margin: auto;
+		}
+		.bird-card img {
+			margin-left: auto;
+			border-radius: 15px;
+			border: 2px solid black;
+			box-shadow: 0 4px rgba(0, 0, 0, 0.562);
+			width: 40%;
+			aspect-ratio: 1/1;
+			object-fit: cover;
+		}
+		.sight-top {
+			display: grid;
+			grid-template-columns: 85% 10%;
+			align-items: center;
+			width: 100%;
+		}
+		.sight-top button {
+			width: 100%;
+			margin-left:auto;
+			margin-right: 40px;
+			height: 60px;
+			font-size: larger;
+			font-weight: bold;
+			
+		}
+		
+		.bird-filtering {
+			display: flex;
+			align-items: center;
+			width: 100%;
+			gap: 20px;
+		}
+
+		.bird-filtering h1 {
+			padding-left: 5%;
+		}
+		.bird-filtering select {
+			width: 14%;
+		}
+		.bird-filtering button {
+			height: 50px;
+			font-size: medium;
+			width: 10%;
+		}
+
+	</style>
 </head>
 <body>
 	<header></header>
-	<nav></nav>
 
 
-	<main class="content-container"></main>
+	<main class="content-container">
+		<div class="sight-top">
+			<div class="bird-filtering">
+
+				<h1>Aves avistadas</h1>
+				<select id="volador">
+					<option value="">Ambas</option>
+					<option value="">Voladoras</option>
+					<option value="">No Voladoras</option>
+				</select>
+				<select id="habitat">
+					<option value="">Hábitat</option>
+					<option value="">Terrestres</option>
+					<option value="">Acuáticas</option>
+					<option value="">Perchadas</option>
+				</select>
+				<select id="alimento">
+					<option value="">Alimentación</option>
+					<option value="">Hervíboras</option>
+					<option value="">Carnívoras</option>
+					<option value="">Omnívoras</option>
+					<option value="">Carroñeras</option>
+				</select>
+				<select name="region" id="region">
+					<option value="">Región</option>
+				</select>
+				<select name="comuna" id="comuna">
+					<option value="">Comuna</option>
+				</select>
+				<input type="date" id="date">
+				<script src="./js/filter.js"></script>
+				<button class="sec-button">Aplicar filtros</button>
+
+			</div>
+
+			
+			<button class="main-button add-bird-button" onclick="window.location.href ='./newsight.html'">Agregar pájaro</button>
+		</div>
+		
+		<div class="card-container">
+			
+			<div class="bird-card">
+				<div class="bird-desc-card">
+					<h1>Gallina</h1>
+					<p><b>Descripción </b>Imagen de Pollo, Pájaro y Aves terrestres. De uso gratuito.</p>
+					<p><b>Ubicación: </b>San Carlos, Región de Ñuble</p>
+					<p><b>Hora de avistamiento: </b>11:30</p>
+					<button  class="main-button" onclick="window.open('./assets/img/gallina.jpg', '_blank');">Descargar imagen original</button>
+				</div>
+				<img src="./assets/img/gallina.jpg" alt="Imagen de gallina">
+			</div>
+			
+			<div class="bird-card">
+				<div class="bird-desc-card">
+					<h1>Flamencos</h1>
+					<p><b>Descripción </b>Imagen de Flamencos, Aves y Pareja. De uso gratuito.</p>
+					<p><b>Ubicación: </b>Maullín, Región de Los Lagos</p>
+					<p><b>Hora de avistamiento: </b>15:30</p>
+					<button  class="main-button" onclick="window.open('./assets/img/flamenco.jpg', '_blank')">Descargar imagen original</button>
+				</div>
+				<img src="./assets/img/flamenco.jpg" alt="Imagen de flamenco">
+			</div>
+			
+			<div class="bird-card">
+				<div class="bird-desc-card">
+					<h1>Zorzal Colorado</h1>
+					<p><b>Descripción </b>El zorzal colorado (Turdus rufiventris), también conocido por zorzal común o, de vientre rufo, es una especie de ave paseriforme de la familia Turdidae que vive en Sudamérica.</p>
+					<p><b>Ubicación: </b>Macul, Región Metropolitana</p>
+					<p><b>Hora de avistamiento: </b>16:20</p>
+					<button  class="main-button" onclick="window.open('./assets/img/zorzal.jpg', '_blank')">Descargar imagen original</button>
+				</div>
+				<img src="./assets/img/zorzal.jpg" alt="Imagen de zorzal">
+			</div>
+
+		</div>
+
+
+	</main>
 
     
 	<footer></footer>

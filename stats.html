@@ -5,14 +5,117 @@
 	<link rel="stylesheet" href="./css/styles.css">
 	<script src="./js/layout.js" defer></script>
 	<title>The Bird Log</title>
+	<style>
+		.graphs {
+			display: grid;
+			grid-template-columns: 33% 33% 33%;
+			justify-content: center;
+			width: 100%;
+			padding-bottom: 20px;
+			text-align: center;
+			align-items: center;
+		}
+		.stat-card {
+			background-color: white;
+			text-align: center;
+			padding-bottom: 10px;
+			margin: 10px;
+			box-shadow: 4px 4px  rgba(0, 0, 0, 0.611);
+			border-radius: 15px;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			width: 80%;
+			aspect-ratio: 1/1;
+			place-self: center;
+
+		}
+		.stat-card img {
+			width: 80%;
+			border: 2px solid lightgray;
+			border-radius: 15px;
+			
+		}
+		
+		.titlehere {
+			width: 50%;
+			background-color: white;
+			box-shadow: 5px 5px rgba(0, 0, 0, 0.218);
+			border-radius: 15px;
+			text-align: center;
+		}
+	</style>
 </head>
 <body>
 	<header></header>
-	<nav></nav>
 
 
-	<main class="content-container"></main>
-
+	<main class="content-container">
+		<h1 class="titlehere">Gráficos y estudios</h1>
+		<div class="graphs">
+			<div class="stat-card">
+				<h2>Estudio avistamientos por comuna</h2>
+				<img src="./assets/img/graphs/avistamientos_comuna.png" alt="avistamientos_comuna">
+				<br>
+				<a href="index.html">Link al estudio</a>
+			</div>
+			<div class="stat-card">
+				<h2>Avistamientos por especie</h2>
+				<img src="./assets/img/graphs/avistamientos_especie.png" alt="avistamientos_especie">
+				<br>
+				<a href="index.html">Link al estudio</a>
+			</div>
+			<div class="stat-card">
+				<h2>avistamientos por hora</h2>
+				<img src="./assets/img/graphs/avistamientos_hora.png" alt="avistamientos_hora">
+				<br>
+				<a href="index.html">Link al estudio</a>
+			</div>
+			<div class="stat-card">
+				<h2>Avistamientos por región</h2>
+				<img src="./assets/img/graphs/avistamientos_region.png" alt="avistamientos_region">
+				<br>
+				<a href="index.html">Link al estudio</a>
+			</div>
+			<div class="stat-card">
+				<h2>Avistamientos por día</h2>
+				<img src="./assets/img/graphs/avistamientosxdia.png" alt="avistamientos_dia">
+				<br>
+				<a href="index.html">Link al estudio</a>
+			</div>
+			<div class="stat-card">
+				<h2>Duración de avistamientos</h2>
+				<img src="./assets/img/graphs/duracionavistamiento.png" alt="duracion_avistamiento">
+				<br>
+				<a href="index.html">Link al estudio</a>
+			</div>
+		</div>
+		<h1 class="titlehere">Usuarios</h1>
+		<div class="graphs">
+			<div class="stat-card">
+				<h2>Nuevos usuarios</h2>
+				<img src="./assets/img/graphs/nuevos_usuarios.png" alt="nuevos_usuarios">
+				<br>
+				<a href="index.html">Link al estudio</a>
+			</div>
+			<div class="stat-card">
+				<h2>Usuarios activos</h2>
+				<img src="./assets/img/graphs/usuarios_activos.png" alt="usuarios_activos">
+				<br>
+				<a href="index.html">Link al estudio</a>
+			</div>
+			<div class="stat-card">
+				<h2>Usuarios por mes</h2>
+				<img src="./assets/img/graphs/usuarios_mes.png" alt="usuarios_mes">
+				<br>
+				<a href="index.html">Link al estudio</a>
+			</div>
+			
+		</div>
+		<a href="index.html" style="width:90vw; display:block;"><h1 style="text-align: center;">Descarga nuestra base de datos aquí</h1></a>
+	</main>
+	
     
 	<footer></footer>
 </body>
