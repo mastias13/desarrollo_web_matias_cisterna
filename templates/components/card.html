@@ -1,0 +1,56 @@
+{% macro resumed_bird_card(avist) %}
+<div class="bird-card">
+    <a href="{{url_for('birds', selected=avist.id, species=request.args.get("species"), region=request.args.get('region'), comuna=request.args.get('comuna'))}}">
+        <div class="bird-desc-card">
+            <h1>{{ avist.ave.nombre }}</h1>
+            <p><b>Descripción: </b>{{ avist.descripcion }}</p>
+        </div>
+        <img src="{{avist.preview_image}}" alt="preview-{{avist.ave.nombre}}">
+    </a>
+</div>
+{%endmacro%}
+
+{% macro bird_card(avist) %}
+<div class="bird-card">
+    <a href="{{url_for('birds', selected=avist.id, species=request.args.get("species"), region=request.args.get('region'), comuna=request.args.get('comuna'))}}" class="bird-button">
+        <div class="bird-desc-card">
+            <h1>{{ avist.ave.nombre }}</h1>
+            <p><b>Descripción: </b>{{ avist.descripcion }}</p>
+            
+        </div>
+        <img src="{{avist.preview_image}}" alt="preview-{{avist.ave.nombre}}">
+    </a>
+</div>
+{%endmacro%}
+
+{% macro full_card(avist) %}
+
+<div class="selected-card">
+    <div class="selected-desc-card">
+        <a class="close-button" href="{{ url_for('birds', species=request.args.get("species"), region=request.args.get('region'), comuna=request.args.get('comuna'), page=request.args.get(page)) }}"">
+            ✕
+        </a>
+        <h1>{{ avist.ave.nombre }}</h1>
+        <p><b>Descripción: </b>{{ avist.descripcion }}</p>
+        <p><b>Fecha y hora: </b>{{ avist.fecha_hora }}</p>
+        <p><b>Lugar: </b> {{avist.comuna.nombre}}, {{ avist.comuna.region.nombre }}</p>
+        <p>Subido por {{avist.voluntario.nombre}} </p>
+    </div>
+    <h2>Multimedia:</h2>
+    <div class="selected-media-card">
+    {% for file in avist.registro %}
+        {% if  file.nombre_archivo.endswith((".png", ".jpg", ".jpeg")) %}
+            <img class="selected-media-card-element" src="{{file.ruta_archivo}}" alt="{{avist.ave.nombre}}">
+        {% else %}
+            <video class="selected-media-card-element" controls poster="{{avist.preview_image}}">
+                <source src="{{file.ruta_archivo}}" type="video/mp4">
+                <source src="{{file.ruta_archivo}}" type="video/quicktime">
+                <source src="{{file.ruta_archivo}}" type="video/x-msvideo">
+                <source src="{{file.ruta_archivo}}" type="video/x-matroska">
+                Tu navegador no soporta la reproducción de video.
+            </video>
+        {% endif %}
+    {% endfor %}
+    </div>
+</div>
+{%endmacro%}

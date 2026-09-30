@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% from "components/graph.html" import graph%}
+
+{% block title %}Stats{% endblock title %}
+{% block content %}
+<h1 class="titlehere">Gráficos y estudios</h1>
+<div class="graphs">
+
+	{{graph("Estudio avistamientos por comuna",  "avistamientos_comuna.png", "avistamientos_comuna", "home")}}
+	{{graph("Avistamientos por especie",  "avistamientos_especie.png", "avistamientos_especie", "home")}}
+	{{graph("Avistamientos por hora",  "avistamientos_hora.png", "avistamientos_hora", "home")}}
+	{{graph("Avistamientos por región",  "avistamientos_region.png", "avistamientos_region", "home")}}
+	{{graph("Avistamientos por día",  "avistamientosxdia.png", "avistamientos_diaa", "home")}}
+	{{graph("Duración de avistamientos",  "duracionavistamiento.png", "duracion_avistamiento", "home")}}
+
+</div>
+<h1 class="titlehere">Usuarios</h1>
+<div class="graphs">
+	{{graph("Nuevos usuarios",  "nuevos_usuarios.png", "nuevos_usuarios", "home")}}
+	{{graph("Usuarios activos",  "usuarios_activos.png", "usuarios_activos", "home")}}
+	{{graph("Usuarios por mes",  "usuarios_mes.png", "usuarios_mes", "home")}}
+</div>
+<a href="index.html" style="width:90vw; display:block;"><h1 style="text-align: center;">Descarga nuestra base de datos aquí</h1></a>
+
+{% endblock content %}

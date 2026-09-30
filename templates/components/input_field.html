@@ -1,0 +1,45 @@
+{% macro input_field(id, name, label, form, errors, type="text") %}
+<div class="input-box">
+    <label for="{{id}}">{{label}}</label><br>
+    <input type="{{type}}" id="{{id}}" name="{{name}}" value="{% if form[name] %}{{form[name]}}{% endif %}">
+    {% if errors.get(name) %}
+        <span class="error visible" id="error-{{id}}">{{errors[name]}}</span>
+    {% else %}
+        <span class="error" id="error-{{id}}"></span>
+    {% endif %}
+
+</div>
+{%endmacro%}
+
+{% macro select_field(id, name, label, options, default, form, errors, class='')%}
+<div class="input-box {{class}}">
+    <label for="{{id}}">{{label}}</label>
+    <select id="{{id}}" name="{{name}}" data-selected="{% if form.get(name) %}{{form.get(name)}}{% endif %}">
+        <option value=""> {{default}} </option>
+        {% for option in options %}
+            <option value="{{option.id}}">
+                {{option.nombre}}
+            </option>
+        {%endfor%}
+    </select>
+    {% if errors.get(name) %}
+        <span class="error visible" id="error-{{id}}">{{errors[name]}}</span>
+    {% else %}
+        <span class="error" id="error-{{id}}"></span>
+    {% endif %}
+</div>
+{%endmacro%}
+
+{% macro image_field(id, name, label, form, errors) %}
+<div class="input-box">
+    <label for="{{id}}">{{label}}</label><br>
+    <input type="file" id="{{id}}" name="{{name}}" accept="image/*, video/*" multiple >
+    {% if errors.get(name) %}
+        <span class="error visible" id="error-{{id}}">{{errors[name]}}</span>
+    {% else %}
+        <span class="error" id="error-{{id}}"></span>
+    {% endif %}
+    <div id="preview-{{id}}">
+    </div>
+</div>
+{%endmacro%}

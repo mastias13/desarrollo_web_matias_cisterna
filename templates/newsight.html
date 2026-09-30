@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% from "components/input_field.html" import input_field, select_field, image_field %}
+
+{% block title %}New Sight{% endblock title %}
+
+{% block content %}
+<h1 class="titlehere">Nuevo avistamiento</h1>
+<form id="form-new-bird" method="POST" enctype="multipart/form-data">
+
+    {{input_field('voluntario', 'voluntario', "Nombre de usuario", form, errors)}}
+
+    {{input_field('password', 'password', "Contraseña", form, errors, 'password')}}
+    
+    {{select_field('species','species', 'Especie de pájaro', species, "Selecciona una especie", form, errors)}}
+
+    {{input_field('desc','desc', 'Descripción', form,errors)}}
+
+    {{input_field('date', 'date', 'Fecha', form, errors, 'date')}}
+    
+    {{input_field('time', 'time', 'Hora', form, errors, 'time')}}
+
+    {{select_field('region', 'region', 'Region', regiones, "Selecciona una región", form, errors)}}
+
+    {{select_field('comuna', 'comuna', 'Comuna', [], "Selecciona una comuna", form, errors)}}
+
+    {{image_field('img', 'img', 'Ingrese hasta 3 archivos (imagen o video)', form, errors)}}
+    
+    <button type="submit" class="main-button">Enviar</button>
+    
+</form>
+
+
+<script>
+    const regiones = [
+
+    {% for region in regiones %}
+    {
+        id: {{ region.id }},
+        nombre: "{{ region.nombre }}",
+
+        comunas: [
+            {% for comuna in region.comunas %}
+            {
+                id: {{ comuna.id }},
+                nombre: "{{ comuna.nombre }}"
+            },
+            {% endfor %}
+        ]
+    },
+    {% endfor %}
+
+    ];
+
+</script>
+<script type="module" src="{{ url_for('static', filename='js/newsight.js') }}"></script>
+{% endblock content %}

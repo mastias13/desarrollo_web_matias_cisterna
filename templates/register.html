@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% from "components/input_field.html" import input_field, select_field%}
+
+{% block title %}Register{% endblock title %}
+{% block content %}
+<h1 class="titlehere">Registro de voluntario</h1>
+<form id="form-registro" method="POST">
+
+    {{input_field('name', 'name', 'Nombre de usuario', form, errors)}}
+
+    {{input_field('email', 'email', "Correo electrónico", form, errors, 'email')}}
+
+    {{input_field('phone', 'phone', "Número de teléfono", form, errors, 'tel')}}
+
+    {{select_field('region', 'region', "Región", regiones, "Selecciona una región", form, errors)}}
+
+    {{select_field('comuna', 'comuna', "Comuna", [], "Selecciona una comuna", form, errors)}}
+
+    {{input_field('password', 'password', 'Contraseña', form, errors, 'password')}}
+    
+    <div style="display:flex">
+        <input style="margin:0; margin-right:3px" type="checkbox" id="checkbox">
+        <p style="margin:0">Ver contraseña</p>
+    </div>
+    <button type="submit" class="main-button">Crear cuenta</button>
+</form>
+<script>
+    const regiones = [
+
+    {% for region in regiones %}
+    {
+        id: {{ region.id }},
+        nombre: "{{ region.nombre }}",
+
+        comunas: [
+            {% for comuna in region.comunas %}
+            {
+                id: {{ comuna.id }},
+                nombre: "{{ comuna.nombre }}"
+            },
+            {% endfor %}
+        ]
+    },
+    {% endfor %}
+
+    ];
+
+</script>
+<script type="module" src="{{url_for('static', filename='js/register.js') }}"></script>
+{% endblock content %}

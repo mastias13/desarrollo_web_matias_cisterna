@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% from "components/card.html" import resumed_bird_card %}
+{% from "components/nav_button.html" import nav_button%}
+
+{% block title%}
+Home
+{% endblock %}
+
+{% block navbar %}
+{% endblock navbar %}
+
+{% block content %}
+<h1 class="titlehere">Welcome to The Bird Log</h1>
+
+<style>
+    .main-menu{
+        display: grid;
+        grid-template-columns: 50% 50%;
+    }
+    .subtitle{
+        margin:auto; 
+        justify-self:center;
+        background-color: lightgray;
+        border-radius: 10px;
+        padding:10px;
+
+    }
+    .subcontent{    
+        background-color: #2F4F3E;
+        border-radius: 25px;
+        border: 2px solid black;
+        margin: 10px;
+        padding:5px;
+    }
+</style>
+
+<div class="main-menu">
+    <div class="subcontent">
+        <h2 class="subtitle">Menú</h2>
+        <ul style="padding:0; font-size:30px;">
+            {{nav_button("register", "Registrar Voluntario")}}
+            {{nav_button("newsight", "Informar Avistamiento")}}
+            {{nav_button("stats", "Estadísticas")}}
+            {{nav_button("birds", "Listado de Avistamientos")}}
+        </ul>
+    </div>
+    <div class="subcontent">
+        <h2 class="subtitle">Últimos avistamientos:</h2>
+        <div class="card-container">
+            {% for bird in birds %}
+                {{resumed_bird_card(bird)}}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

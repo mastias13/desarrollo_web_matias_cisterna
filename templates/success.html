@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Success{% endblock title %}
+{% block content %}
+<div style="padding: 10%;">
+	{% if inf=="Voluntario" %}
+		<h1 class="titlehere">Voluntario registrado correctamente</h1>
+		<p>¿Deseas declarar un avistamiento? </p>
+		<button class="main-button" onclick=window.location.assign('{{url_for('newsight')}}')>Agregar Avistamiento</button>
+	{% endif %}
+	{% if inf=="Avistamiento" %}
+		<h1 class="titlehere">Avistamiento registrado correctamente</h1>
+		<p>¿Deseas declarar otro avistamiento? </p>
+		<button class="main-button" onclick=window.location.assign('{{url_for('newsight')}}')>Agregar Avistamiento</button>
+	{% endif %}
+	<button class="main-button" onclick="window.location.assign('{{url_for('home')}}')">Volver al inicio</button>
+</div>
+{% endblock content %}

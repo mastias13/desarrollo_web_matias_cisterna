@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% from "components/input_field.html" import select_field %}
+{% from "components/card.html" import bird_card, full_card %}
+
+{% block title %}
+Birds
+{% endblock title %}
+
+{% block content %}
+<h1 class="titlehere">Aves avistadas</h1>
+<div class="sight-top">
+	<div class="bird-filtering">
+		<form method="GET" style="display:flex;align-items:center;">
+
+			
+			<input type="hidden"name="selected" value="{{ request.args.get('selected', '') }}">
+			{{select_field("region", "region", "Region", reg, "Selecciona una región", {'region':region}, {}, class='filt-sel')}}
+			{{select_field("comuna", "comuna", "Comuna", {}, "Selecciona una comuna", {'comuna':comuna}, {}, class='filt-sel')}}
+			{{select_field("species", "species", "Especie", ave, "Selecciona una especie", {'species':species}, {}, class='filt-sel')}}
+
+			<button class="sec-button filt-button" type="submit">Aplicar filtros</button>
+			<button type="button" class="sec-button filt-button" onclick="window.location.href ='{{url_for('birds', selected=request.args.get('selected', ''), species='', region='', comuna='')}}'">Limpiar filtros</button>
+
+		</form>
+	</div>
+
+	
+	<button class="main-button add-bird-button" onclick="window.location.href ='{{url_for('newsight')}}'">Agregar pájaro</button>
+</div>
+
+{% if selected%}
+	{{full_card(selected)}}
+{% endif %}
+
+<div class="card-container big">
+	
+	{% for bird in pagination.items %}
+	{{bird_card(bird)}}
+	{% endfor %}
+
+	
+</div>
+
+<div class="pagination">
+	
+{% if pagination.has_prev %}
+	<a href="{{ url_for('birds', page=pagination.prev_num, species=species, region=region, comuna=comuna) }}">←</a>
+{% endif %}
+
+Página {{ pagination.page }} de {{ pagination.pages }}
+
+{% if pagination.has_next %}
+	<a href="{{url_for('birds', selected=Selected, page=pagination.next_num, species=species, region=region, comuna=comuna)}}">→</a>
+{% endif %}
+</div>
+
+<script>
+    const regiones = [
+
+    {% for region in reg %}
+    {
+        id: {{ region.id }},
+        nombre: "{{ region.nombre }}",
+
+        comunas: [
+            {% for comuna in region.comunas %}
+            {
+                id: {{ comuna.id }},
+                nombre: "{{ comuna.nombre }}"
+            },
+            {% endfor %}
+        ]
+    },
+    {% endfor %}
+
+    ];
+
+</script>
+<script type="module" src="{{url_for('static', filename='js/filter.js') }}"></script>
+
+{% endblock %}
