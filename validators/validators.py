@@ -113,7 +113,6 @@ def validateFiles(filelist, min, max, id, error):
         )
         file.seek(0)
         
-        print(mime)
         # Segunda pasada
         if mime not in ALLOWED_TYPES:
             error[id] = f"Archivos permitidos: .mkv, .png, .jpg, .mp4, .mov, .avi, .jpeg"
