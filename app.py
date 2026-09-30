@@ -43,7 +43,7 @@ def birds():
         Avistamiento.fecha_hora.desc()
     ).paginate(
         page=page,
-        per_page=10,
+        per_page=9,
         error_out=False
     )
     
