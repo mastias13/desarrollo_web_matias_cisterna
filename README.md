@@ -55,6 +55,9 @@ Para la asociación con la base de datos, se hicieron las clases en la carpeta m
 #### Sitio stats:
 - Se mantuvo igual que antes, solo se ajustaron las rutas y se hizo una macro de jinja para exponerlo en tarjetas.
 
+#### Pruebas:
+- El sitio web se probó en windows con brave y edge, debian con firefox, iphone con chrome y android con chrome.
+
 <hr>
 
 #### Iconos:
