@@ -55,7 +55,7 @@ class Avistamiento(db.Model):
         if id==None: return None
         return  (
             cls.query
-            .get(int(id))
+            .get(id)
         )
     
     @classmethod

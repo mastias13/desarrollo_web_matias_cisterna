@@ -37,10 +37,6 @@ def birds():
     comuna = request.args.get("comuna")
     page = request.args.get("page", 1, type=int)
     
-    sel_av = None
-    if selected:
-        sel_av = Avistamiento.getId(selected)
-
     query = Avistamiento.get_filtered(species, region, comuna)
     
     pagination = query.order_by(
@@ -52,7 +48,7 @@ def birds():
     )
     
     
-    return render_template("birds.html", species=species, region=region, comuna=comuna, selected=sel_av, pagination=pagination, reg=Region.getRegiones(), ave=Ave.getSpecies())
+    return render_template("birds.html", species=species, region=region, comuna=comuna, selected=Avistamiento.getId(selected), pagination=pagination, reg=Region.getRegiones(), ave=Ave.getSpecies())
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
