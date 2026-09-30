@@ -14,13 +14,13 @@ Birds
 		<form method="GET" style="display:flex;align-items:center;">
 
 			
-			<input type="hidden"name="selected" value="{{ request.args.get('selected', '') }}">
+			<input type="hidden" name="selected" value="{{ request.args.get('selected') }}">
 			{{select_field("region", "region", "Region", reg, "Selecciona una región", {'region':region}, {}, class='filt-sel')}}
 			{{select_field("comuna", "comuna", "Comuna", {}, "Selecciona una comuna", {'comuna':comuna}, {}, class='filt-sel')}}
 			{{select_field("species", "species", "Especie", ave, "Selecciona una especie", {'species':species}, {}, class='filt-sel')}}
 
 			<button class="sec-button filt-button" type="submit">Aplicar filtros</button>
-			<button type="button" class="sec-button filt-button" onclick="window.location.href ='{{url_for('birds', selected=request.args.get('selected', ''), species='', region='', comuna='')}}'">Limpiar filtros</button>
+			<button type="button" class="sec-button filt-button" onclick="window.location.href ='{{url_for('birds', selected=request.args.get('selected'), species='', region='', comuna='')}}'">Limpiar filtros</button>
 
 		</form>
 	</div>

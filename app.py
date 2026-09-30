@@ -52,7 +52,7 @@ def birds():
     )
     
     
-    return render_template("birds.html", species=species, region=region, comuna=comuna, Selected=sel_av, pagination=pagination, reg=Region.getRegiones(), ave=Ave.getSpecies())
+    return render_template("birds.html", species=species, region=region, comuna=comuna, selected=sel_av, pagination=pagination, reg=Region.getRegiones(), ave=Ave.getSpecies())
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
