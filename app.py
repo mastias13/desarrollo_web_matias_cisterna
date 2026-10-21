@@ -21,7 +21,7 @@ import validators.validators as validators
 app = Flask(__name__)
 
 app.config["SQLALCHEMY_DATABASE_URI"] = \
-    "mysql+pymysql://cc5002:programacionweb@100.78.215.22/tarea2"
+    "mysql+pymysql://cc5002:programacionweb@localhost/tarea2"
 
 db.init_app(app)
 
