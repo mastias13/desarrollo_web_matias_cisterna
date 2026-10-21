@@ -1,4 +1,5 @@
 from db import db
+from flask import jsonify
 
 class Avistamiento(db.Model):
     __tablename__ = "avistamiento"
@@ -30,6 +31,11 @@ class Avistamiento(db.Model):
         )
     
     comuna = db.relationship("Comuna")
+
+    comentario = db.relationship(
+            "Comentario",
+            backref="avistamiento"
+            )
     
     @classmethod
     def getAvistamientos(cls):
@@ -77,3 +83,15 @@ class Avistamiento(db.Model):
                 )
             )
         return query
+    @classmethod
+    def get_comments(cls, id):
+        avistamiento = cls.getId(id)
+        return jsonify([
+            {
+                "nombre": c.nombre,
+                "comment": c.texto,
+                "date": c.fecha 
+            }
+            for c in avistamiento.comentario
+            ])
+

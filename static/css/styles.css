@@ -1,3 +1,22 @@
+.main-menu{
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+.subtitle{
+  margin:auto; 
+  justify-self:center;
+  background-color: lightgray;
+  border-radius: 10px;
+  padding:10px;
+
+}
+.subcontent{    
+  background-color: #2F4F3E;
+  border-radius: 25px;
+  border: 2px solid black;
+  margin: 10px;
+  padding:5px;
+}
 body {
     background-color: #F5F3ED;
     display: flex;
@@ -221,13 +240,15 @@ button {
 
 .graphs {
     display: grid;
-    grid-template-columns: 33% 33% 33%;
-    justify-content: center;
-    width: 100%;
-    padding-bottom: 20px;
-    text-align: center;
-    align-items: center;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    width: 65vw;
 }
+.graph {
+  aspect-ratio: 1 / 1;
+  width: 100%;
+}
+
 .stat-card {
     background-color: white;
     text-align: center;

@@ -11,6 +11,17 @@
 </div>
 {%endmacro%}
 
+{% macro text_area(id, name, rows, cols, label, form, errors)%}
+<div class="input-box">
+    <label for="{{id}}">{{label}}</label><br>
+    <textarea id="{{id}}" name="{{name}}" rows="{{rows}}" cols="{{cols}}" placeholder="{{label}}"></textarea>
+    {% if errors.get(name) %}
+        <span class="error visible" id="error-{{id}}">{{errors[name]}}</span>
+    {% else %}
+        <span class="error" id="error-{{id}}"></span>
+    {% endif %}
+</div>
+{%endmacro%}
 {% macro select_field(id, name, label, options, default, form, errors, class='')%}
 <div class="input-box {{class}}">
     <label for="{{id}}">{{label}}</label>
@@ -43,3 +54,4 @@
     </div>
 </div>
 {%endmacro%}
+

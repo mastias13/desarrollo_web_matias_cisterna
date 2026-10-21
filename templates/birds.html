@@ -3,10 +3,6 @@
 {% from "components/input_field.html" import select_field %}
 {% from "components/card.html" import bird_card, full_card %}
 
-{% block title %}
-Birds
-{% endblock title %}
-
 {% block content %}
 <h1 class="titlehere">Aves avistadas</h1>
 <div class="sight-top">
@@ -30,7 +26,10 @@ Birds
 </div>
 
 {% if selected%}
-	{{full_card(selected)}}
+    <script>
+        const avistamientoId = {{ selected.id }};
+    </script>
+	{{full_card(selected, form, errors)}}
 {% endif %}
 
 <div class="card-container big">
@@ -42,7 +41,7 @@ Birds
 	
 </div>
 
-<div class="pagination">
+<div class="pagination" style="align-self: center; justify-self:center">
 	
 {% if pagination.has_prev %}
 	<a href="{{ url_for('birds', page=pagination.prev_num, species=species, region=region, comuna=comuna) }}">←</a>
@@ -75,7 +74,6 @@ Página {{ pagination.page }} de {{ pagination.pages }}
     {% endfor %}
 
     ];
-
 </script>
 <script type="module" src="{{url_for('static', filename='js/filter.js') }}"></script>
 

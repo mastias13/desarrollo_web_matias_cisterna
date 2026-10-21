@@ -1,8 +1,6 @@
 {% extends "base.html" %}
 
-{% from "components/input_field.html" import input_field, select_field, image_field %}
-
-{% block title %}New Sight{% endblock title %}
+{% from "components/input_field.html" import input_field, select_field, image_field, text_area %}
 
 {% block content %}
 <h1 class="titlehere">Nuevo avistamiento</h1>
@@ -14,7 +12,7 @@
     
     {{select_field('species','species', 'Especie de pájaro', species, "Selecciona una especie", form, errors)}}
 
-    {{input_field('desc','desc', 'Descripción', form,errors)}}
+    {{text_area('desc', 'desc', '3', '60', 'Descripción', form, errors)}}
 
     {{input_field('date', 'date', 'Fecha', form, errors, 'date')}}
     
