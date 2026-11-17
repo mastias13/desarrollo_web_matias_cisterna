@@ -8,7 +8,6 @@
 <div class="sight-top">
 	<div class="bird-filtering">
 		<form method="GET" style="display:flex;align-items:center;">
-
 			
 			<input type="hidden" name="selected" value="{{ request.args.get('selected') }}">
 			{{select_field("region", "region", "Region", reg, "Selecciona una región", {'region':region}, {}, class='filt-sel')}}
@@ -21,7 +20,6 @@
 		</form>
 	</div>
 
-	
 	<button class="main-button add-bird-button" onclick="window.location.href ='{{url_for('newsight')}}'">Agregar pájaro</button>
 </div>
 
@@ -30,6 +28,16 @@
         const avistamientoId = {{ selected.id }};
     </script>
 	{{full_card(selected, form, errors)}}
+{% else %}
+<div class="search-container">
+
+    <input type="text" id="search-input" placeholder="Buscar avistamientos">
+    <div id="search-results"></div>
+
+</div>
+
+<script src="{{url_for('static', filename='js/search.js')}}"></script>
+
 {% endif %}
 
 <div class="card-container big">

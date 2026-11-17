@@ -36,6 +36,11 @@ class Avistamiento(db.Model):
             "Comentario",
             backref="avistamiento"
             )
+
+    nota = db.relationship(
+            "Nota",
+            backref="avistamiento"
+            )
     
     @classmethod
     def getAvistamientos(cls):
@@ -55,6 +60,18 @@ class Avistamiento(db.Model):
             if reg.ruta_archivo.lower().endswith((".png", ".jpg", ".jpeg")):
                 return reg.ruta_archivo
         return None
+
+    @property
+    def getNota(self):
+        sum = 0
+        count = 0
+        for n in self.nota:
+            sum += int(n.nota) 
+            count+=1
+        if count > 0:
+            return round(sum/count, 2)
+        else:
+            return -1
 
     @classmethod
     def getId(cls, id):
@@ -93,5 +110,14 @@ class Avistamiento(db.Model):
                 "date": c.fecha 
             }
             for c in avistamiento.comentario
+            ])
+
+    @classmethod
+    def get_nota(cls, id):
+        avistamiento = cls.getId(id)
+        return jsonify ([
+            {
+                "nota": avistamiento.getNota
+            }
             ])
 

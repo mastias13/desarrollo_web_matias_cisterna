@@ -60,10 +60,23 @@
         {{text_area('comment', 'comment', '3', '40', "Comentario", form, errors)}}
         <button type="submit" class="main-button">Enviar</button>
       </form>
+
     <div id="comments">
+    </div>
+
+    <div class="notas-section">
+      <form id="form-nota" method="POST">
+        <input type="hidden" id="selected" name="selected" value="{{avist.id}}">
+        {{input_field('nota', 'nota', "Nota entre 1 y 7", form, errors, type='number')}}
+        <button type="submit" class="main-button">Evaluar</button>
+      </form>
+    </div>
+
+    <div id="notas">
+    </div>
       
     </div>
-    </div>
     <script type="module" src="{{ url_for('static', filename='js/comments.js') }}"></script>
+    <script type="module" src="{{ url_for('static', filename='js/notas.js') }}"></script>
 </div>
 {%endmacro%}

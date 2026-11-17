@@ -15,6 +15,7 @@ from models.voluntario import Voluntario
 from models.avistamiento import Avistamiento
 from models.registro import Registro
 from models.comentario import Comentario
+from models.nota import Nota
 
 import validators.validators as validators
 
@@ -29,7 +30,6 @@ db.init_app(app)
 @app.route("/")
 def home():
     return render_template("index.html", birds=Avistamiento.getLast(2))
-
 
 @app.route("/comments/<int:avistamiento_id>")
 def comments(avistamiento_id):

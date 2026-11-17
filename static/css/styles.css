@@ -519,3 +519,26 @@ max-width: 280px;
 height: 190px;
 }
 }
+
+.search-item-element {    
+    text-decoration: none;
+    color: #006324;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.search-result{
+    border: 2px solid black;
+    background-color: #9fe79f;
+    width: 50%;
+    align-self: center;
+    justify-self: center;
+}
+
+#search-results{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    justify-content: center;
+    align-items: center;
+}
