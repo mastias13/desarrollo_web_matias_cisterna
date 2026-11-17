@@ -4,7 +4,7 @@ import * as validators from "./validators.js"
 function loadNotas(){
   let xhr = new XMLHttpRequest();
 
-  xhr.open("GET", "/notas/"+avistamientoId, true)
+  xhr.open("GET", `http://localhost:8080/api/nota?id=${avistamientoId}`, true)
 
   xhr.onload = function(){
     let notas = JSON.parse(xhr.responseText);
@@ -15,7 +15,7 @@ function loadNotas(){
     let nombre = document.createElement("b");
     nombre.textContent="Nota: "
     notaFinal.appendChild(nombre);
-    let promedio = notas[0].nota
+    let promedio = notas.nota
     if (promedio == -1){
       promedio = "-"
     }
